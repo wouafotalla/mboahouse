@@ -1,18 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../home.css">
-    <link rel="stylesheet" type="text/css" href="cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta charset="UTF-8">
-    <title>Cart</title>
-</head>
-
+<?php require_once("include/head.php"); ?>
+<?php require_once("include/db.php"); ?>
+<?php require_once("include/function.php"); ?>
 
 
 <body>
-<!--header-->
+<?php
+     include'templates/layout_header.php';
+
+  ?>
+     
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+        /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+    </script>
+       <header>
+        <br><p id="showtext" style="color:#333;"><b><h1>Find your next rental</h1>
+        <h1>with us!</h1></b>
+        Rent a house in different towns to suit your needs</p>
+        
+          <center>
+                      <form method="post" action="" class="form" id="VaccationBox">
+                      
+                      <table cellspacing="10" cellpadding="20" class="table-sm">
+                        <tr>
+                          <td>Location</td>
+                          <td><label>Check in date</label></td>
+                          <td><label>Check out date</label></td>
+                          <td><label>Guest(s)</label></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                              <select class="" id="CheckInDate">
+                                   <option>Location</option>
+                                   <option>Buea</option>
+                                   <option>Bafoussam</option>
+                                   <option>Douala</option>
+                                   <option>Kribi</option>
+                                   <option>Yaounde</option>
+                                   <option>Bamenda</option>
+                              </select>
+                            </div>
+                         </td>
+                          <td>
+                              <input type="date" name="CheckinDate" placeholder="Check In Date" class="form-group" id="CheckInDate">
+                          </td>
+                          <td>
+                              <input type="date" name="CheckinDate" placeholder="Check In Date" class="form-group" id="CheckInDate">
+                          </td>
+                          <td>
+                            <input type="number" name="CheckinDate" placeholder="Check In Date" class="form-group" id="CheckInDate">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4"><b>Filters:</b></td>
+                        </tr>
+                        <tr>
+                          
+                          <td><div>
+                              <select class="#" id="CheckInDate">
+                                   <option></option>
+                                   <option>Muble</option>
+                                   <option>Fonish</option>
+                                   <option>Douala</option>
+                                   
+                              </select>
+                          </div>
+                          </td>
+                          <td colspan="3">
+                              <center><button type="search" class="btn btn-success" id="SearchButton"><i class="fa fa-search"></i></button></center>
+                          </td>
+                        </tr>
+                      </table>
+                    </form></center>
+       </header>
+      <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                      <br>
+
+                    <div class="card-group">
+                      <div class="card">
+                        
+                        <img class="card" src="images\73.jpg" alt="Card image cap" height="#" id="product_id">
+                        <div class="card-body">
+                          <h5 class="card-title" id="card-title">Studio Modern(20M X 30M)</h5>
+                          
+                          <h6 class="card-title">Cameroon</h6>
+                          <h5 class="card-title" id="card-title-price">85000frs</h5>
+                          
+                          <div class=""  id="BookResevertionButton">
+                            <a href="reservation.php?id=<?php echo $product_id; ?>">
+                          <button class="btn btn-success" >Book a resevation</button></a>
+                          
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="card">
+                        
+                        <img class="card-img-top" src="images\70.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <img class="card-img-top" src="images\71.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                      </div>   
+              </div>
+                </div>
+            </div>    
+             <div class="row">
+                <div class="col-sm-12">
+                      <br>
+
+                    <div class="card-group">
+                      <div class="card">
+                        
+                        <img class="card" src="images\73.jpg" alt="Card image cap" height="#">
+                        <div class="card-body">
+                          <h5 class="card-title" id="card-title">Studio Modern(20M X 30M)</h5>
+                          
+                          <h6 class="card-title">Cameroon</h6>
+                          <h5 class="card-title" id="card-title-price">85000frs</h5>
+                          
+                          <div class=""  id="BookResevertionButton">
+                          <button onclick="document.getElementById('id03').style.display='block'" class="btn btn-success" >Book a resevation</button>
+                          
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="card">
+                        
+                        <img class="card-img-top" src="images\70.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <img class="card-img-top" src="images\71.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                      </div>   
+              </div>
+                </div>
+            </div>    
+        </div>
+            
+            
+     </div>
+     
+     <div class="row">
+                <div class="col-sm-12" id="footer">
+                    <div class="">
+                        For any issue with the platfom contact me at wouafotalla.jeangael@ictunivercity.edu.cm/gael.wouafo@gmail.com / 693 741 106/ 650 699 511 / 620 239 480<br>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-danger">Left</button>
+  <button type="button" class="btn btn-warning">Middle</button>
+  <button type="button" class="btn btn-success">Right</button>
+</div>
+
+                    </div>
+                 </div>
+     </div>
+
+<!-- Button to open the modal login form -->
+
+<!-- Signin Modal -->
+
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
+<script type="text/javascript"> 
+
+        function create_account(){ 
+
+                var n=document.getElementById("UserName").value;  
+                
+        if(n==''||e==''||p==''||cp==''){  
+        alert("Enter each details correctly");  
+        }  
+        else if(!letters.test(n))  
+                {  
+                    alert('Name is incorrect must contain alphabets only');  
+                }  
+        else if (!email_val.test(e))  
+                {  
+                    alert('Invalid email format please enter valid email id');  
+                }  
+        else if(Userpassword!=UserPasswordConfirmation)  
+        {  
+        alert("Passwords not matching");  
+        }  
+        else if(document.getElementById("p1").value.length > 12)  
+        {  
+        alert("Password maximum length is 12");  
+        }  
+        else if(document.getElementById("p1").value.length < 6)  
+        {  
+        alert("Password minimum length is 6");  
+        }  
+        else{  
+        alert("Your account has been created successfully... Redirecting to your login page");  
+        window.location="login.html";  
+        }  
+}  
+</script>  
+
+<!-- ---------------------------------------------------------------------end of the navbar ---------------------------------------------------------------------------------------->
+   
+
+         
